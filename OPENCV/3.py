@@ -1,8 +1,5 @@
 import cv2 as cv
 
-cv.namedWindow("Mountains Video", cv.WINDOW_NORMAL)
-cv.setWindowProperty("Mountains Video", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
-
 vid=cv.VideoCapture("mountains.mp4")
 
 while True:
