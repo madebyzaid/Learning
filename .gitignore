@@ -1,0 +1,7 @@
+
+# Compiled C binaries
+C/exp[0-9]
+C/exp[0-9][0-9]
+
+# Teacher repository kept locally
+/CO101/

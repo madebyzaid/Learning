@@ -1,0 +1,29 @@
+# STL Complexity: vector vs deque vs list
+
+| Operation | vector | deque | list |
+|---|---|---|---|
+| `[i]`, `at(i)` | O(1) | O(1) | not available |
+| `front()`, `back()` | O(1) | O(1) | O(1) |
+| `size()`, `empty()` | O(1) | O(1) | O(1) |
+| `push_back` / `emplace_back` | amortized O(1) | O(1) | O(1) |
+| `pop_back` | O(1) | O(1) | O(1) |
+| `push_front` / `emplace_front` | not available | O(1) | O(1) |
+| `pop_front` | not available | O(1) | O(1) |
+| `insert` at front | O(n) | O(1) | O(1) |
+| `insert` in middle (iterator given) | O(n) | O(n) | O(1) |
+| `erase` in middle (iterator given) | O(n) | O(n) | O(1) |
+| reach the i-th position | O(1) | O(1) | O(i) |
+| `clear()` | O(n) | O(n) | O(n) |
+| `swap` | O(1) | O(1) | O(1) |
+| full loop | O(n) | O(n) | O(n) |
+| `std::sort(begin, end)` | O(n log n) | O(n log n) | does not compile, use `l.sort()` |
+
+## Quick rules
+- vector: fast at the back and by index, slow everywhere else.
+- deque: vector, plus fast at the front.
+- list: fast insert/erase anywhere once you hold the iterator, but no indexing.
+
+## Iterator invalidation
+- vector: push_back/insert may invalidate all; erase invalidates at and after the position.
+- deque: insert/erase in the middle invalidates all; at either end, iterators are invalidated but references to elements stay valid.
+- list: only iterators to erased elements are invalidated.
