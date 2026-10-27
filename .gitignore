@@ -1,7 +1,55 @@
-
-# Compiled C binaries
-C/exp[0-9]
-C/exp[0-9][0-9]
-
-# Teacher repository kept locally
+# --- keep: your existing rule ---
 /CO101/
+
+# --- compiled binaries without extension (gcc/g++ -o name) ---
+*
+!*/
+!*.*
+
+# --- re-ignore after the whitelist above (order matters) ---
+# compiled output
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.bin
+
+# images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+
+# videos
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.webm
+
+# AI / ML models and exported model folders
+*.pt
+*.pth
+*.onnx
+*.h5
+*.weights
+*.param
+*_ncnn_model/
+
+# datasets
+*.csv
+
+# python / environment junk
+__pycache__/
+*.pyc
+myenv/
+venv/
+.venv/
+
+# Windows download markers
+*:Zone.Identifier
+*Zone.Identifier
