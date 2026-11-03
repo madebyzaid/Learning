@@ -19,7 +19,7 @@ def parse_args():
         description="Have two Ollama models hold a short, logged conversation."
     )
     parser.add_argument("--model-a", default="llama3.2:3b")
-    parser.add_argument("--model-b", default="gemma4:12b")
+    parser.add_argument("--model-b", default="llama3.2:3b")
     parser.add_argument(
         "--max-turns",
         type=int,
