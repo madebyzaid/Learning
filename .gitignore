@@ -1,12 +1,15 @@
-# --- keep: your existing rule ---
-/CO101/
-
-# --- compiled binaries without extension (gcc/g++ -o name) ---
+# ---------- compiled binaries without extension (gcc/g++ -o name) ----------
+# Ignore every extensionless file, then re-allow directories,
+# anything with an extension, and common extensionless project files.
 *
 !*/
 !*.*
+!README
+!LICENSE
+!Makefile
+!Dockerfile
 
-# --- re-ignore after the whitelist above (order matters) ---
+# ---------- re-ignore after the whitelist above (order matters) ----------
 # compiled output
 *.exe
 *.out
@@ -49,6 +52,7 @@ __pycache__/
 myenv/
 venv/
 .venv/
+.ipynb_checkpoints/
 
 # Windows download markers
 *:Zone.Identifier
