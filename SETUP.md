@@ -1,4 +1,4 @@
-# Setup Guide
+<img width="942" height="1198" alt="image" src="https://github.com/user-attachments/assets/671fd0cf-62d3-4641-bb66-a9c113018d0d" /># Setup Guide
 
 How to set up a laptop to work on this repo. Follow this on any new machine (or after reinstalling WSL).
 
@@ -72,7 +72,27 @@ run script.py
 The script itself lives on each machine, not in this repo. To keep both laptops identical, paste its contents below (or commit it under `dotfiles/`):
 
 ```bash
-# TODO: paste the contents of the run script here
+run() {
+  if [ -z "$1" ]; then
+    echo "Usage: run <file.py|file.c|file.cpp>"
+    return 1
+  fi
+
+  local file="$1"
+  local name="${file%.*}"
+  local ext="${file##*.}"
+  if [ ! -f "$file" ]; then
+    echo "run: '$file' not found"
+    return 1
+  fi
+
+  case "$ext" in
+    py)  python3 "$file" ;;
+    cpp) g++ "$file" -o "$name" && "./$name" ;;
+    c)   gcc "$file" -o "$name" && "./$name" ;;
+    *)   echo "run: unsupported file type '.$ext'"; return 1 ;;
+  esac
+}
 ```
 
 ## 6. VS Code settings
