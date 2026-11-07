@@ -1,4 +1,4 @@
-<img width="942" height="1198" alt="image" src="https://github.com/user-attachments/assets/671fd0cf-62d3-4641-bb66-a9c113018d0d" /># Setup Guide
+# Setup Guide
 
 How to set up a laptop to work on this repo. Follow this on any new machine (or after reinstalling WSL).
 
